@@ -1,6 +1,0 @@
-E:\School (z3410682)\Workspace\Microsoft Visual Studio\PracticeQuestion\PracticeQuestion\bin\Debug\PracticeQuestion.exe.config
-E:\School (z3410682)\Workspace\Microsoft Visual Studio\PracticeQuestion\PracticeQuestion\bin\Debug\PracticeQuestion.exe
-E:\School (z3410682)\Workspace\Microsoft Visual Studio\PracticeQuestion\PracticeQuestion\bin\Debug\PracticeQuestion.pdb
-E:\School (z3410682)\Workspace\Microsoft Visual Studio\PracticeQuestion\PracticeQuestion\obj\Debug\PracticeQuestion.csprojResolveAssemblyReference.cache
-E:\School (z3410682)\Workspace\Microsoft Visual Studio\PracticeQuestion\PracticeQuestion\obj\Debug\PracticeQuestion.exe
-E:\School (z3410682)\Workspace\Microsoft Visual Studio\PracticeQuestion\PracticeQuestion\obj\Debug\PracticeQuestion.pdb
