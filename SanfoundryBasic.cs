@@ -8,6 +8,9 @@ namespace PracticeQuestion
 {
     class SanfoundryBasic
     {
+        public static int One { get; } = 1;
+
+        public static char Char { get; } = 'a';
 
         /*
          * Check whether input number is an even number
@@ -178,7 +181,7 @@ namespace PracticeQuestion
             {
                 Console.Write("You want to roll dice? (y/n) : ");
                 string command = Console.ReadLine();
-                switch(command)
+                switch (command)
                 {
                     case "y":
                         Console.WriteLine("You have rolled : " + rnd.Next(1, 7));
@@ -189,5 +192,116 @@ namespace PracticeQuestion
                 }
             }
         }
+
+        /*
+         * Simple simulation for Phonebook functionality
+         */
+        public static void PhonebookSimulation()
+        {
+            Console.WriteLine("Welcome to kappa Phonebook");
+            SortedDictionary<string, string> phonebook = new SortedDictionary<string, string>();
+            PrintPhoneBookCommand();
+            while (true)
+            {
+                Console.Write("Input command : ");
+                int res;
+                string choice = Console.ReadLine();
+                while (!int.TryParse(choice, out res))
+                {
+                    Console.Write("Please input number only : ");
+                    choice = Console.ReadLine();
+                }
+           
+                switch (int.Parse(choice))
+                {
+                    case 1:
+                        if (phonebook.Count == 0)
+                        {
+                            Console.WriteLine("Phonebook is empty!");
+                            break;
+                        }
+                        foreach (KeyValuePair<string, string> person in phonebook)
+                        {
+                            Console.WriteLine("Name : " + person.Key + ", Phone number : " + person.Value);
+                        }
+                        break;
+                    case 2:
+                        {
+                            if (phonebook.Count == 0)
+                            {
+                                Console.WriteLine("Phonebook is empty!");
+                                break;
+                            }
+                            Console.Write("Please insert the person name : ");
+                            string name = Console.ReadLine();
+                            if (phonebook.ContainsKey(name))
+                            {
+                                phonebook.Remove(name);
+                                Console.WriteLine(name + " is removed from phonebook");
+                            }
+                            else
+                            {
+                                Console.WriteLine(name + " does not exist in phonebook");
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.Write("Please insert the person name : ");
+                            string name = Console.ReadLine();
+                            if (phonebook.ContainsKey(name))
+                            {
+                                Console.WriteLine(name + " already exists in phonebook");
+                                break;
+                            }
+                            Console.Write("Please insert the phone number : ");
+                            //TODO : Add function to validate phone number
+                            string phone = Console.ReadLine();
+                            phonebook.Add(name, phone);
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.Write("Please insert the person name : ");
+                            string name = Console.ReadLine();
+                            if (phonebook.ContainsKey(name))
+                            {
+                                Console.WriteLine(name + "'s phone number is : "+phonebook[name]);
+                                break;
+                            } else
+                            {
+                                Console.WriteLine(name + " does not exist in phonebook");
+                            }
+                            break;
+                        }
+                    case 5:
+                        PrintPhoneBookCommand();
+                        break;
+                    case 6:
+                        Console.WriteLine("Thank you for coming, we hope to see you again");
+                        phonebook.Clear();
+                        return;
+                    default:
+                        Console.WriteLine("Command not recognized");
+                        break;
+                }
+            }
+        }
+
+        /*
+         * Print command function
+         */ 
+        private static void PrintPhoneBookCommand()
+        {
+            Console.WriteLine("Enter the following number");
+            Console.WriteLine("1 List content of phonebook");
+            Console.WriteLine("2 Remove person from phonebook");
+            Console.WriteLine("3 Add person to phonebook");
+            Console.WriteLine("4 Get phone number of a person");
+            Console.WriteLine("5 Show command");
+            Console.WriteLine("6 Quit");
+        }
+
+
     }
 }
